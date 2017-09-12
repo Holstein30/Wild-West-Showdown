@@ -7,6 +7,10 @@ body {
 	margin: 20px auto;
 }
 
+progress {
+	border: 1px solid #000;
+}
+
 hr {
 	border: 1px solid #8B4513;
 	width: 50%;
