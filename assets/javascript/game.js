@@ -1,3 +1,10 @@
+// Variables
+
+clintPick = false;
+johnPick = false;
+leePick = false;
+samPick = false;
+
 // Set character stats (HP, Power)
 
 let clint = {
@@ -47,20 +54,28 @@ $(document).ready(function() {
 // Set up click events to choose character & switch to duel screen when chosen 
 
 $("#clint").on("click", function() {
-        console.log("CLINT");
+        $("#userPick").html("<img src='assets/images/Clint-Eastwood.jpg' alt='Clint Eastwood'>/");
+        clintPick = true;
         hideToggle();
+        opponents();
 });
 $("#john").on("click", function() {
-        console.log("JOHN");
+        $("#userPick").html("<img src='assets/images/John-Wayne.jpg' alt='John Wayne'>/");
+        johnPick = true;
         hideToggle();
+        opponents();
 });
 $("#lee").on("click", function() {
-        console.log("LEE");
+        $("#userPick").html("<img src='assets/images/Lee-Van-Cleef.jpg' alt='Lee Van Cleef'>/");
+        leePick = true;
         hideToggle();
+        opponents();
 });
 $("#sam").on("click", function() {
-        console.log("SAM");
+        $("#userPick").html("<img src='assets/images/Sam-Elliot.jpg' alt='Sam Elliot'>/");
+        samPick = true;
         hideToggle();
+        opponents();
 });
 
 function hideToggle () {
@@ -68,6 +83,30 @@ function hideToggle () {
 }
 
 // Make rest of characters the enemy
+
+function opponents () {
+	if (clintPick) {
+		$("#opponentA").html("<img src='assets/images/John-Wayne.jpg' alt='John Wayne'>/");
+		$("#opponentB").html("<img src='assets/images/Lee-Van-Cleef.jpg' alt='Lee Van Cleef'>/");
+		$("#opponentC").html("<img src='assets/images/Sam-Elliot.jpg' alt='Sam Elliot'>/");
+	}
+	else if (johnPick){
+		$("#opponentA").html("<img src='assets/images/Clint-Eastwood.jpg' alt='Clint Eastwood'>/");
+		$("#opponentB").html("<img src='assets/images/Lee-Van-Cleef.jpg' alt='Lee Van Cleef'>/");
+		$("#opponentC").html("<img src='assets/images/Sam-Elliot.jpg' alt='Sam Elliot'>/");
+	}
+	else if (leePick) {
+		$("#opponentA").html("<img src='assets/images/John-Wayne.jpg' alt='John Wayne'>/");
+		$("#opponentB").html("<img src='assets/images/Clint-Eastwood.jpg' alt='Clint Eastwood'>/");
+		$("#opponentC").html("<img src='assets/images/Sam-Elliot.jpg' alt='Sam Elliot'>/");		
+	}
+	else {
+		$("#opponentA").html("<img src='assets/images/John-Wayne.jpg' alt='John Wayne'>/");
+		$("#opponentB").html("<img src='assets/images/Lee-Van-Cleef.jpg' alt='Lee Van Cleef'>/");
+		$("#opponentC").html("<img src='assets/images/Clint-Eastwood.jpg' alt='Clint-Eastwood'>/");
+	}
+}
+
 // Let user attack and have them immediately counter attacked by opponent
 // If HP=0 that character loses. 
 // -if character is users character then player loses
