@@ -21,7 +21,7 @@ let sam = {
 	power: 20
 }
 
-// Create attack object
+// Create attack object (Maybe counter attack too?)
 
 function attack () {
 	clintAttack = Math.floor(Math.random() * clint.power);
@@ -29,6 +29,8 @@ function attack () {
 	leeAttack = Math.floor(Math.random() * lee.power);
 	samAttack = Math.floor(Math.random() * sam.power);
 }
+
+// Draw event to attack
 
 $(document).ready(function() {
       // When random-button is clicked...
@@ -42,21 +44,29 @@ $(document).ready(function() {
 
 });
 
-// Create a counter attack object
-// Set up click events to choose character
+// Set up click events to choose character & switch to duel screen when chosen 
 
 $("#clint").on("click", function() {
-        console.log("You chose clint");
-       	function unhide() {
-		var item = document.getElementById(".row");
-		if (item) {
-    		if(item.className=='hidden'){
-        		item.className = 'unhidden' ;
-    		}else{
-        		item.className = 'hidden';
-    		}
-		}}
+        console.log("CLINT");
+        hideToggle();
 });
+$("#john").on("click", function() {
+        console.log("JOHN");
+        hideToggle();
+});
+$("#lee").on("click", function() {
+        console.log("LEE");
+        hideToggle();
+});
+$("#sam").on("click", function() {
+        console.log("SAM");
+        hideToggle();
+});
+
+function hideToggle () {
+	$('.hide').toggleClass('unhidden hidden');
+}
+
 // Make rest of characters the enemy
 // Let user attack and have them immediately counter attacked by opponent
 // If HP=0 that character loses. 
@@ -64,23 +74,3 @@ $("#clint").on("click", function() {
 // -if it is opponents then move to next opponent
 // -if opponent out of characters then the user wins
 // -tally wins & losses
-
-
-
-
-
-
-
-// For Hiding and Unhiding
-
-function unhide(clickedButton, divID) {
-var item = document.getElementById(divID);
-if (item) {
-    if(item.className=='hidden'){
-        item.className = 'unhidden' ;
-        clickedButton.value = 'hide'
-    }else{
-        item.className = 'hidden';
-        clickedButton.value = 'unhide'
-    }
-}}
