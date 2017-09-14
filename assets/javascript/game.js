@@ -34,7 +34,7 @@ var clint = {
 var john = {
 	name: "'The Duke'",
 	hp: 200,
-	attack: Math.floor(Math.random() * 50)
+	attack: 1000 // Math.floor(Math.random() * 50)
 }
 
 // Lee
@@ -87,7 +87,6 @@ $(".chars").on("click", function () {
 	else {
 		return;
 	}
-	
 });
 
 
@@ -189,6 +188,10 @@ function check () {
 		console.log("wins " + wins);
 		$("#wins").html("Wins: " + wins);
 		$("#info").html("YOU WON!!!");
+		$("#clint").hide();
+		$("#john").hide();
+		$("#lee").hide();
+		$("#sam").hide();
 		gameOver();
 	}
 	else if (userDead) {
@@ -200,6 +203,7 @@ function check () {
 		$("#john").hide();
 		$("#lee").hide();
 		$("#sam").hide();
+		hideToggle();
 		gameOver();
 	}
 	else {
@@ -215,6 +219,7 @@ function checkHealth () {
 				if (clint.hp <= 0) {
 					if (userChar === "clint") {
 						userDead = true;
+						check();
 						return;
 					}
 					opponentsLeft--;
@@ -227,6 +232,8 @@ function checkHealth () {
 				else if (john.hp <= 0) {
 					if (userChar === "john") {
 						userDead = true;
+						check();
+						return;
 					}
 					opponentsLeft--;
 					check();
@@ -240,6 +247,8 @@ function checkHealth () {
 				if (clint.hp <= 0) {
 					if (userChar === "clint") {
 						userDead = true;
+						check();
+						return;
 					}
 					opponentsLeft--;
 					check();
@@ -251,6 +260,8 @@ function checkHealth () {
 				else if (lee.hp <= 0) {
 					if (userChar === "lee") {
 						userDead = true;
+						check();
+						return;
 					}
 					opponentsLeft--;
 					check();
@@ -264,6 +275,8 @@ function checkHealth () {
 				if (clint.hp <= 0) {
 					if (userChar === "clint") {
 						userDead = true;
+						check();
+						return;
 					}
 					opponentsLeft--;
 					check();
@@ -275,6 +288,8 @@ function checkHealth () {
 				else if (sam.hp <= 0) {
 					if (userChar === "sam") {
 						userDead = true;
+						check();
+						return;
 					}
 					opponentsLeft--;
 					check();
@@ -288,6 +303,8 @@ function checkHealth () {
 				if (john.hp <= 0) {
 					if (userChar === "john") {
 						userDead = true;
+						check();
+						return;
 					}
 					opponentsLeft--;
 					check();
@@ -299,6 +316,8 @@ function checkHealth () {
 				else if (lee.hp <= 0) {
 					if (userChar === "lee") {
 						userDead = true;
+						check();
+						return;
 					}
 					opponentsLeft--;
 					check();
@@ -312,6 +331,8 @@ function checkHealth () {
 				if (john.hp <= 0) {
 					if (userChar === "john") {
 						userDead = true;
+						check();
+						return;
 					}
 					opponentsLeft--;
 					check();
@@ -323,6 +344,8 @@ function checkHealth () {
 				else if (sam.hp <= 0) {
 					if (userChar === "sam") {
 						userDead = true;
+						check();
+						return;
 					}
 					opponentsLeft--;
 					check();
@@ -336,6 +359,8 @@ function checkHealth () {
 				if (lee.hp <= 0) {
 					if (userChar === "lee") {
 						userDead = true;
+						check();
+						return;
 					}
 					opponentsLeft--;
 					check();
@@ -347,6 +372,8 @@ function checkHealth () {
 				else if (sam.hp <= 0) {
 					if (userChar === "sam") {
 						userDead = true;
+						check();
+						return;
 					}
 					opponentsLeft--;
 					check();
@@ -391,7 +418,7 @@ function gameOver () {
 // -----------
 // When player loses screen doesn't toggle and everytime you hit draw losses increases
 // When player hits a key to restart game and then chooses a character 3 characters show on duel screen
-// 
+//  
 
 
 
