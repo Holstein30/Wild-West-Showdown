@@ -34,7 +34,7 @@ var clint = {
 var john = {
 	name: "'The Duke'",
 	hp: 200,
-	attack: 1000 // Math.floor(Math.random() * 50)
+	attack: Math.floor(Math.random() * 50)
 }
 
 // Lee
@@ -188,10 +188,10 @@ function check () {
 		console.log("wins " + wins);
 		$("#wins").html("Wins: " + wins);
 		$("#info").html("YOU WON!!!");
-		$("#clint").hide();
-		$("#john").hide();
-		$("#lee").hide();
-		$("#sam").hide();
+		$("#clint").empty();
+		$("#john").empty();
+		$("#lee").empty();
+		$("#sam").empty();
 		gameOver();
 	}
 	else if (userDead) {
@@ -401,11 +401,15 @@ function gameOver () {
 	// 	$("#DRAW").html("DRAW");
 	// 	start();
 	// });
+
 	$("#alert").show();
-	document.body.addEventListener('keypress', start);
+	document.body.addEventListener('keypress', reset);
 	}
 });
 
+function reset () {
+	window.location.reload();
+}
 });
 
 // Whats left to be added
@@ -416,7 +420,6 @@ function gameOver () {
 
 // Known Bugs
 // -----------
-// When player loses screen doesn't toggle and everytime you hit draw losses increases
 // When player hits a key to restart game and then chooses a character 3 characters show on duel screen
 //  
 
