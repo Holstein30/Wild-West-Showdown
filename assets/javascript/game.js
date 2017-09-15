@@ -24,9 +24,9 @@ var losses = 0;
 // Clint
 
 var clint = {
-	name: "'Blondie'",
+	name: "'The Man with No Name'",
 	hp: 100,
-	attack: 50 // Math.floor(Math.random() * 100)
+	attack: Math.floor(Math.random() * 100)
 }
 
 // John
@@ -194,21 +194,15 @@ function check () {
 		console.log("wins " + wins);
 		$("#wins").html("Wins: " + wins);
 		$("#info").html("YOU WON!!!");
-		$("#clint").hide();
-		$("#john").hide();
-		$("#lee").hide();
-		$("#sam").hide();
+		$("#charSelect").hide();
 		gameOver();
 	}
 	else if (userDead) {
 		$(".w-l").show();
 		losses++;
 		$("#losses").html("Losses: " + losses);
-		$("#info").html("YOU LOST!")
-		$("#clint").hide();
-		$("#john").hide();
-		$("#lee").hide();
-		$("#sam").hide();
+		$("#info").html("YOU LOST!");
+		$("#charSelect").hide();
 		hideToggle();
 		gameOver();
 	}

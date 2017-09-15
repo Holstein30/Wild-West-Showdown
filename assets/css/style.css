@@ -33,9 +33,24 @@ img {
 	margin: 50px;
 }
 
-#userHealth {
-	font-size: 50px;
+#userHealth, #opponentHealth {
+	font-size: 40px;
 	color: #fff;
+}
+
+.charStats {
+	font-size: 20px;
+	color: #fff;
+}
+
+.w-l {
+	color: #fff;
+	margin-top: 20px;
+}
+
+#alert {
+	color: #fff;
+	margin-top: 100px;
 }
 
 /*For hiding and unhiding*/
