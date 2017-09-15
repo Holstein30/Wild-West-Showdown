@@ -26,7 +26,7 @@ var losses = 0;
 var clint = {
 	name: "'Blondie'",
 	hp: 100,
-	attack: Math.floor(Math.random() * 100)
+	attack: 50 // Math.floor(Math.random() * 100)
 }
 
 // John
@@ -123,6 +123,7 @@ $("#DRAW").on("click", function() {
 			console.log("2" + opponentChar);
 			john.hp -= clint.attack;
 			clint.hp -= john.attack;
+			health();
 			console.log(john.hp);
 			console.log(clint.hp);
 			check();
@@ -132,6 +133,7 @@ $("#DRAW").on("click", function() {
 			console.log("CLINT v LEE");
 			lee.hp -= clint.attack;
 			clint.hp -= lee.attack;
+			health();
 			console.log(lee.hp);
 			console.log(clint.hp);
 			check();
@@ -141,6 +143,7 @@ $("#DRAW").on("click", function() {
 			console.log("CLINT v SAM");
 			sam.hp -= clint.attack;
 			clint.hp -= sam.attack;
+			health();
 			console.log(sam.hp);
 			console.log(clint.hp);
 			check();
@@ -150,6 +153,7 @@ $("#DRAW").on("click", function() {
 			console.log("JOHN v LEE");
 			john.hp -= lee.attack;
 			lee.hp -= john.attack;
+			health();
 			console.log(lee.hp);
 			console.log(john.hp);
 			check();
@@ -159,6 +163,7 @@ $("#DRAW").on("click", function() {
 			console.log("JOHN v SAM");
 			sam.hp -= john.attack;
 			john.hp -= sam.attack;
+			health();
 			console.log(sam.hp);
 			console.log(john.hp);
 			check();
@@ -168,6 +173,7 @@ $("#DRAW").on("click", function() {
 			console.log("LEE v SAM");
 			sam.hp -= lee.attack;
 			lee.hp -= sam.attack;
+			health();
 			console.log(sam.hp);
 			console.log(lee.hp);
 			check();
@@ -188,10 +194,10 @@ function check () {
 		console.log("wins " + wins);
 		$("#wins").html("Wins: " + wins);
 		$("#info").html("YOU WON!!!");
-		$("#clint").empty();
-		$("#john").empty();
-		$("#lee").empty();
-		$("#sam").empty();
+		$("#clint").hide();
+		$("#john").hide();
+		$("#lee").hide();
+		$("#sam").hide();
 		gameOver();
 	}
 	else if (userDead) {
@@ -390,6 +396,40 @@ function checkHealth () {
 		}
 	}
 
+function health () {
+	switch (userChar) {
+		case "clint":
+			$("#userHealth").html(clint.hp);
+			break;
+		case "john":
+			$("#userHealth").html(john.hp);
+			break;
+		case "lee":
+			$("#userHealth").html(lee.hp);
+			break;
+		case "sam":
+			$("#userHealth").html(sam.hp);
+			break;
+	}
+
+	switch (opponentChar) {
+		case "clint":
+			// $("#opponentHealth").empty();
+			$("#opponentHealth").html(clint.hp);
+			break;
+		case "john":
+			// $("#opponentHealth").empty();
+			$("#opponentHealth").html(john.hp);
+			break;
+		case "lee":
+			$("#opponentHealth").html(lee.hp);
+			break;
+		case "sam":
+			// $("#opponentHealth").empty();
+			$("#opponentHealth").html(sam.hp);
+			break;
+	}
+}
 
 function gameOver () {
 	// $("#DRAW").html("Restart");
@@ -401,7 +441,8 @@ function gameOver () {
 	// 	$("#DRAW").html("DRAW");
 	// 	start();
 	// });
-
+	// $("#userPick").reset();
+	// $("#opponentPick")reset()
 	$("#alert").show();
 	document.body.addEventListener('keypress', reset);
 	}
@@ -421,8 +462,11 @@ function reset () {
 // Known Bugs
 // -----------
 // When player hits a key to restart game and then chooses a character 3 characters show on duel screen
-//  
+// When fixed restart I can't keep track of wins/losses after each game
+// Opponent health doesn't reset until draw clicked again after opponent is switched out
 
-
-
+// Random thoughts 
+// ---------------
+// Maybe create an instance of the game to reset var instance1 = new game;
+// Or could reset html containers
 
