@@ -2,6 +2,7 @@ $(document).ready(function start() {
 $(".w-l").hide();
 $("#alert").hide();
 $("#info").text("Choose a Cowboy!")
+
 // Variables
 
 $("#clint").show();
@@ -9,8 +10,8 @@ $("#john").show();
 $("#lee").show();
 $("#sam").show();
 
-var gameStart = false;
-var gameOver = false;
+// var gameStart = false;
+// var gameOver = false;
 var user = false;
 var userDead = false;
 var opponent = false;
@@ -25,34 +26,34 @@ var losses = 0;
 
 var clint = {
 	name: "'The Man with No Name'",
-	hp: 100,
-	attack: Math.floor(Math.random() * 100)
+	hp: 400,
+	attack: 50 + Math.floor(Math.random() * 300)
 }
 
 // John
 
 var john = {
 	name: "'The Duke'",
-	hp: 200,
-	attack: Math.floor(Math.random() * 50)
+	hp: 500,
+	attack: 30 + Math.floor(Math.random() * 100)
 }
 
 // Lee
 
 var lee = {
 	name: "'Angel Eyes'",
-	hp: 150,
-	attack: Math.floor(Math.random() * 75)
+	hp: 425,
+	attack: 40 + Math.floor(Math.random() * 200)
 }
 
 // Sam
 
 var sam = {
 	name: "'The Stranger'",
-	hp: 250,
-	attack: Math.floor(Math.random() * 25)
+	hp: 550,
+	attack: 20 + Math.floor(Math.random() * 75)
 }
-// Sounds to be added if everything else works
+// Sounds to be added if time permits
 
 var clintSound;
 var johnSound;
@@ -107,10 +108,46 @@ function opponents () {
 			console.log(opponentChar);
 			$("#info").html("<h2 id='info'>Press Draw to Attack</h2>");
 			hideToggle();
+			health();
 		});
 	}
 	else {
 		return;
+	}
+}
+
+function health () {
+	switch (userChar) {
+		case "clint":
+			$("#userHealth").html("Health: " + clint.hp);
+			break;
+		case "john":
+			$("#userHealth").html("Health: " + john.hp);
+			break;
+		case "lee":
+			$("#userHealth").html("Health: " + lee.hp);
+			break;
+		case "sam":
+			$("#userHealth").html("Health: " + sam.hp);
+			break;
+	}
+
+	switch (opponentChar) {
+		case "clint":
+			// $("#opponentHealth").empty();
+			$("#opponentHealth").html("Health: " + clint.hp);
+			break;
+		case "john":
+			// $("#opponentHealth").empty();
+			$("#opponentHealth").html("Health: " + john.hp);
+			break;
+		case "lee":
+			$("#opponentHealth").html("Health: " + lee.hp);
+			break;
+		case "sam":
+			// $("#opponentHealth").empty();
+			$("#opponentHealth").html("Health: " + sam.hp);
+			break;
 	}
 }
 
@@ -223,6 +260,7 @@ function checkHealth () {
 						return;
 					}
 					opponentsLeft--;
+					$("#info").html("<h2 id='info'>Choose your Opponent<h2>");
 					check();
 					hideToggle();
 					console.log(opponent);
@@ -236,6 +274,7 @@ function checkHealth () {
 						return;
 					}
 					opponentsLeft--;
+					$("#info").html("<h2 id='info'>Choose your Opponent<h2>");
 					check();
 					hideToggle();
 					console.log(opponent);
@@ -251,6 +290,7 @@ function checkHealth () {
 						return;
 					}
 					opponentsLeft--;
+					$("#info").html("<h2 id='info'>Choose your Opponent<h2>");
 					check();
 					hideToggle();
 					console.log(opponent);
@@ -264,6 +304,7 @@ function checkHealth () {
 						return;
 					}
 					opponentsLeft--;
+					$("#info").html("<h2 id='info'>Choose your Opponent<h2>");
 					check();
 					hideToggle();
 					console.log(opponent);
@@ -279,6 +320,7 @@ function checkHealth () {
 						return;
 					}
 					opponentsLeft--;
+					$("#info").html("<h2 id='info'>Choose your Opponent<h2>");
 					check();
 					hideToggle();
 					console.log(opponent);
@@ -292,6 +334,7 @@ function checkHealth () {
 						return;
 					}
 					opponentsLeft--;
+					$("#info").html("<h2 id='info'>Choose your Opponent<h2>");
 					check();
 					hideToggle();
 					console.log(opponent);
@@ -307,6 +350,7 @@ function checkHealth () {
 						return;
 					}
 					opponentsLeft--;
+					$("#info").html("<h2 id='info'>Choose your Opponent<h2>");
 					check();
 					hideToggle();
 					console.log(opponent);
@@ -320,6 +364,7 @@ function checkHealth () {
 						return;
 					}
 					opponentsLeft--;
+					$("#info").html("<h2 id='info'>Choose your Opponent<h2>");
 					check();
 					hideToggle();
 					console.log(opponent);
@@ -335,6 +380,7 @@ function checkHealth () {
 						return;
 					}
 					opponentsLeft--;
+					$("#info").html("<h2 id='info'>Choose your Opponent<h2>");
 					check();
 					hideToggle();
 					console.log(opponent);
@@ -348,6 +394,7 @@ function checkHealth () {
 						return;
 					}
 					opponentsLeft--;
+					$("#info").html("<h2 id='info'>Choose your Opponent<h2>");
 					check();
 					hideToggle();
 					console.log(opponent);
@@ -363,6 +410,7 @@ function checkHealth () {
 						return;
 					}
 					opponentsLeft--;
+					$("#info").html("<h2 id='info'>Choose your Opponent<h2>");
 					check();
 					hideToggle();
 					console.log(opponent);
@@ -376,6 +424,7 @@ function checkHealth () {
 						return;
 					}
 					opponentsLeft--;
+					$("#info").html("<h2 id='info'>Choose your Opponent<h2>");
 					check();
 					hideToggle();
 					console.log(opponent);
@@ -389,41 +438,6 @@ function checkHealth () {
 			}		
 		}
 	}
-
-function health () {
-	switch (userChar) {
-		case "clint":
-			$("#userHealth").html(clint.hp);
-			break;
-		case "john":
-			$("#userHealth").html(john.hp);
-			break;
-		case "lee":
-			$("#userHealth").html(lee.hp);
-			break;
-		case "sam":
-			$("#userHealth").html(sam.hp);
-			break;
-	}
-
-	switch (opponentChar) {
-		case "clint":
-			// $("#opponentHealth").empty();
-			$("#opponentHealth").html(clint.hp);
-			break;
-		case "john":
-			// $("#opponentHealth").empty();
-			$("#opponentHealth").html(john.hp);
-			break;
-		case "lee":
-			$("#opponentHealth").html(lee.hp);
-			break;
-		case "sam":
-			// $("#opponentHealth").empty();
-			$("#opponentHealth").html(sam.hp);
-			break;
-	}
-}
 
 function gameOver () {
 	// $("#DRAW").html("Restart");
@@ -449,7 +463,7 @@ function reset () {
 
 // Whats left to be added
 // -------------
-// MOST IMPORTANT: Display characters names and health
+// MOST IMPORTANT: Balancing issues - Its nearly impossible to win against all 3 opponents without one being overpowered at the moment
 // Play sounds when choosing characters/hitting draw/win/lose/restart/etc.
 
 
@@ -457,10 +471,9 @@ function reset () {
 // -----------
 // When player hits a key to restart game and then chooses a character 3 characters show on duel screen
 // When fixed restart I can't keep track of wins/losses after each game
-// Opponent health doesn't reset until draw clicked again after opponent is switched out
 
 // Random thoughts 
 // ---------------
-// Maybe create an instance of the game to reset var instance1 = new game;
+// Maybe create an instance of the game to reset var instance1 = new game; (probably doesn't work but might try if everything else fixed)
 // Or could reset html containers
 
