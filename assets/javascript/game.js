@@ -4,6 +4,7 @@ var wins = 0;
 var losses = 0;
 
 $(document).ready(function start() {
+
 $(".w-l").hide();
 $("#alert").hide();
 $("#info").text("Choose a Cowboy!");
@@ -549,9 +550,9 @@ function gameOver () {
 	}
 });
 
-function reset () {
-	window.location.reload();
-}
+// function reset () {
+// 	window.location.reload();
+// }
 });
 
 // Whats left to be added
@@ -561,8 +562,8 @@ function reset () {
 
 // Known Bugs
 // -----------
-// When player hits a key to restart game and then chooses a character 3 characters show on duel screen
-// When fixed restart I can't keep track of wins/losses after each game
+// When you win it still displays choose your opponent instead of you win! 
+// Event listener stays active after first round to restart the game
 
 // Random thoughts 
 // ---------------
