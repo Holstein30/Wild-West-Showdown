@@ -1,26 +1,29 @@
+// wins & losses tally
+
+var wins = 0;
+var losses = 0;
+
 $(document).ready(function start() {
 $(".w-l").hide();
 $("#alert").hide();
-$("#info").text("Choose a Cowboy!")
-
-// Variables
-
+$("#info").text("Choose a Cowboy!");
+var reset_html = $(".container").html();
+$(".container").html(reset_html);
+$("#charSelect").show();
 $("#clint").show();
 $("#john").show();
 $("#lee").show();
 $("#sam").show();
 
-// var gameStart = false;
-// var gameOver = false;
+// Variables
+
 var user = false;
 var userDead = false;
 var opponent = false;
 var opponent2 = false;
 var opponentsLeft = 3;
-var wins = 0;
-var losses = 0;
 
-// Character objects with stats (maybe add critical hit)
+// Character objects with stats 
 
 // Clint
 
@@ -76,8 +79,8 @@ function hideToggle () {
 
 // Character selection
 
-$(".chars").on("click", function () {
-	if (user == false) {
+$(".chars").one("click", function () {
+	if (user === false) {
 		$(this).hide();
 		var newImg = $("<img>");
 		userImage = $(this).attr("src");
@@ -98,7 +101,7 @@ $(".chars").on("click", function () {
 function opponents () { 
 	if (opponent === false) {
 		$("#info").html("<h2 id='info'>Choose your Opponent<h2>")
-		$(".chars").on("click", function() {
+		$(".chars").one("click", function() {
 			$(this).hide();
 			$("#opponentPick img").remove();
 			opponent = true;
@@ -109,7 +112,7 @@ function opponents () {
 			newImg.attr("src", opponentImage);
 			opponentChar = $(this).attr("id");
 			console.log(opponentImage);
-			console.log(opponentChar);
+			console.log("OPPONENT" + opponentChar);
 			$("#info").html("<h2 id='info'>Press Draw to Attack</h2>");
 			hideToggle();
 			health();
@@ -523,18 +526,25 @@ function checkHealth () {
 
 function gameOver () {
 	// $("#DRAW").html("Restart");
-	clint.hp = 80;
-	john.hp = 120;
-	lee.hp = 90;
-	sam.hp = 180;
+	clint.hp = 150;
+	john.hp = 180;
+	lee.hp = 170;
+	sam.hp = 200;
 	// $("#DRAW").on("click", function () {
 	// 	$("#DRAW").html("DRAW");
 	// 	start();
 	// });
-	// $("#userPick").reset();
-	// $("#opponentPick")reset()
+	$("#userPick").empty();
+	$("#opponentPick").empty();
 	$("#alert").show();
-	document.body.addEventListener('keypress', reset);
+	user = false;
+	userDead = false;
+	opponent = false;
+	opponentsLeft = 3;
+	userDead = false;
+	opponent = false;
+	user = false;
+	document.body.addEventListener('keypress', start);
 	}
 });
 
@@ -545,7 +555,6 @@ function reset () {
 
 // Whats left to be added
 // -------------
-// MOST IMPORTANT: Balancing issues - Its nearly impossible to win against all 3 opponents without one being overpowered at the moment
 // Play sounds when choosing characters/hitting draw/win/lose/restart/etc.
 
 
