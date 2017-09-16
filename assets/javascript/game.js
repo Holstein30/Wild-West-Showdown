@@ -14,6 +14,8 @@ $("#clint").show();
 $("#john").show();
 $("#lee").show();
 $("#sam").show();
+$("userHealth").show();
+$("opponentHealth").show();
 
 // Variables
 
@@ -82,7 +84,7 @@ function hideToggle () {
 $(".chars").one("click", function () {
 	if (user === false) {
 		$(this).hide();
-		var newImg = $("<img>");
+		var newImg = $("<img class='remove'>");
 		userImage = $(this).attr("src");
 		// $("#userPick").attr("src", userImage);
 		$("#userPick").append(newImg);
@@ -105,7 +107,7 @@ function opponents () {
 			$(this).hide();
 			$("#opponentPick img").remove();
 			opponent = true;
-			newImg = $("<img id='remove'>");
+			newImg = $("<img class='remove'>");
 			opponentImage = $(this).attr("src");
 			// $("#opponentPick").attr("src", opponentImage);
 			$("#opponentPick").append(newImg);
@@ -534,8 +536,7 @@ function gameOver () {
 	// 	$("#DRAW").html("DRAW");
 	// 	start();
 	// });
-	$("#userPick").empty();
-	$("#opponentPick").empty();
+	$(".remove").remove();
 	$("#alert").show();
 	user = false;
 	userDead = false;
