@@ -26,32 +26,36 @@ var losses = 0;
 
 var clint = {
 	name: "'The Man with No Name'",
-	hp: 400,
-	attack: 50 + Math.floor(Math.random() * 300)
+	hp: 150,
+	attack: 25 + Math.floor(Math.random() * 125),
+	counterAttack: 20 + Math.floor(Math.random() * 20)
 }
 
 // John
 
 var john = {
 	name: "'The Duke'",
-	hp: 500,
-	attack: 30 + Math.floor(Math.random() * 100)
+	hp: 180,
+	attack: 15 + Math.floor(Math.random() * 85),
+	counterAttack: 10 + Math.floor(Math.random() * 20)
 }
 
 // Lee
 
 var lee = {
 	name: "'Angel Eyes'",
-	hp: 425,
-	attack: 40 + Math.floor(Math.random() * 200)
+	hp: 170,
+	attack: 20 + Math.floor(Math.random() * 100),
+	counterAttack: 15 + Math.floor(Math.random() * 20)
 }
 
 // Sam
 
 var sam = {
 	name: "'The Stranger'",
-	hp: 550,
-	attack: 20 + Math.floor(Math.random() * 75)
+	hp: 200,
+	attack: 10 + Math.floor(Math.random() * 75),
+	counterAttack: 5 + Math.floor(Math.random() * 20)
 }
 // Sounds to be added if time permits
 
@@ -158,63 +162,141 @@ $("#DRAW").on("click", function() {
 		if ((userChar === "clint" || opponentChar === "clint") && (userChar === "john" || opponentChar === "john")) {
 			console.log("CLINT v JOHN");
 			console.log("2" + opponentChar);
-			john.hp -= clint.attack;
-			clint.hp -= john.attack;
-			health();
-			console.log(john.hp);
-			console.log(clint.hp);
-			check();
-			checkHealth();
+			switch (userChar) {
+				case "clint":
+					clint.hp -= john.counterAttack;
+					john.hp -= clint.attack;
+					health();
+					console.log(clint.hp);
+					console.log(john.hp);
+					check();
+					checkHealth();
+					break;
+				case "john":
+					john.hp -= clint.counterAttack;
+					clint.hp -= john.attack;
+					health();
+					console.log(john.hp);
+					console.log(clint.hp);
+					check();
+					checkHealth();
+					break;
+			}
 		}
 		else if ((userChar === "clint" || opponentChar === "clint") && (userChar === "lee" || opponentChar === "lee")) {
 			console.log("CLINT v LEE");
-			lee.hp -= clint.attack;
-			clint.hp -= lee.attack;
-			health();
-			console.log(lee.hp);
-			console.log(clint.hp);
-			check();
-			checkHealth();
+			switch (userChar) {
+				case "clint":
+					clint.hp -= lee.counterAttack;
+					lee.hp -= clint.attack;
+					health();
+					console.log(clint.hp);
+					console.log(lee.hp);
+					check();
+					checkHealth();
+					break;
+				case "lee":
+					lee.hp -= clint.counterAttack;
+					clint.hp -= lee.attack;
+					health();
+					console.log(lee.hp);
+					console.log(clint.hp);
+					check();
+					checkHealth();
+					break;
+			}
 		}
 		else if ((userChar === "clint" || opponentChar === "clint") && (userChar === "sam" || opponentChar === "sam")) {
 			console.log("CLINT v SAM");
-			sam.hp -= clint.attack;
-			clint.hp -= sam.attack;
-			health();
-			console.log(sam.hp);
-			console.log(clint.hp);
-			check();
-			checkHealth();
+			switch (userChar) {
+				case "clint":
+					clint.hp -= sam.counterAttack;
+					sam.hp -= clint.attack;
+					health();
+					console.log(clint.hp);
+					console.log(sam.hp);
+					check();
+					checkHealth();
+					break;
+				case "sam":
+					sam.hp -= clint.counterAttack;
+					clint.hp -= sam.attack;
+					health();
+					console.log(sam.hp);
+					console.log(clint.hp);
+					check();
+					checkHealth();
+					break;
+			}
 		}
 		else if ((userChar === "john" || opponentChar === "john") && (userChar === "lee" || opponentChar === "lee")) {
 			console.log("JOHN v LEE");
-			john.hp -= lee.attack;
-			lee.hp -= john.attack;
-			health();
-			console.log(lee.hp);
-			console.log(john.hp);
-			check();
-			checkHealth();
+			switch (userChar) {
+				case "john":
+					john.hp -= lee.counterAttack;
+					lee.hp -= john.attack;
+					health();
+					console.log(john.hp);
+					console.log(lee.hp);
+					check();
+					checkHealth();
+					break;
+				case "lee":
+					lee.hp -= john.counterAttack;
+					john.hp -= lee.attack;
+					health();
+					console.log(lee.hp);
+					console.log(john.hp);
+					check();
+					checkHealth();
+					break;
+			}
 		}
 		else if ((userChar === "john" || opponentChar === "john") && (userChar === "sam" || opponentChar === "sam")) {
 			console.log("JOHN v SAM");
-			sam.hp -= john.attack;
-			john.hp -= sam.attack;
-			health();
-			console.log(sam.hp);
-			console.log(john.hp);
-			check();
-			checkHealth();
+			switch (userChar) {
+				case "john":
+					john.hp -= sam.counterAttack;
+					sam.hp -= john.attack;
+					health();
+					console.log(john.hp);
+					console.log(sam.hp);
+					check();
+					checkHealth();
+					break;
+				case "sam":
+					sam.hp -= john.counterAttack;
+					john.hp -= sam.attack;
+					health();
+					console.log(sam.hp);
+					console.log(john.hp);
+					check();
+					checkHealth();
+					break;
+			}
 		}
 		else if ((userChar === "lee" || opponentChar === "lee") && (userChar === "sam" || opponentChar === "sam")) {
 			console.log("LEE v SAM");
-			sam.hp -= lee.attack;
-			lee.hp -= sam.attack;
-			health();
-			console.log(sam.hp);
-			console.log(lee.hp);
-			check();
-			checkHealth();
+			switch (userChar) {
+				case "lee":
+					lee.hp -= sam.counterAttack;
+					sam.hp -= lee.attack;
+					health();
+					console.log(lee.hp);
+					console.log(sam.hp);
+					check();
+					checkHealth();
+					break;
+				case "sam":
+					sam.hp -= lee.counterAttack;
+					lee.hp -= sam.attack;
+					health();
+					console.log(sam.hp);
+					console.log(lee.hp);
+					check();
+					checkHealth();
+					break;
+			}
 		}
 		else {
 			console.log("got to else");

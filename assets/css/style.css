@@ -40,7 +40,8 @@ img {
 
 .charStats {
 	font-size: 20px;
-	color: #fff;
+	color: red;
+	background: white;
 }
 
 .w-l {
